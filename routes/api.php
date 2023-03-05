@@ -22,7 +22,7 @@ Route::get('/user/refresh', 'App\Http\Controllers\ApiUserController@refresh');
 Route::fallback(function () {
     return json_encode([
         'status' => 400,
-        'message' => 'Cannot find method.'
+        'message' => 'Can not find method.'
     ]);
 });
 
