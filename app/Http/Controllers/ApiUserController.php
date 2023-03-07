@@ -26,14 +26,14 @@ class ApiUserController extends Controller
 
         if ($saved) {
             $res = [
-                'status' => 200,
+                'code' => 200,
                 'message' => 'ok',
             ];
             return response()->json($res);
         }
 
         $res = [
-            'status' => 400,
+            'code' => 400,
             'message' => 'not ok',
         ];
         return response()->json($res);
@@ -58,14 +58,14 @@ class ApiUserController extends Controller
     {
         if (!$token = Auth::attempt(['email' => $request->email, 'password' => $request->password,])) {
             $res = [
-                'status' => 400,
+                'code' => 400,
                 'message' => 'Incorrect account or password.',
             ];
             return response()->json($res);
         }
 
         $res = [
-            'status' => 200,
+            'code' => 200,
             'message' => 'ok',
             'data' => [
                 'token' => $this->create_new_token($token)['access_token']
@@ -78,7 +78,7 @@ class ApiUserController extends Controller
     {
         Auth::logout();
         $res = [
-            'status' => 200,
+            'code' => 200,
             'message' => 'ok'
         ];
         return response()->json($res);
@@ -88,11 +88,15 @@ class ApiUserController extends Controller
     {
         $user =  Auth::user();
         $data = [
-            "id" => $user["id"],
-            "name" => $user["name"]
+            "introduction" => null,
+            "avatar" => "https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif",
+            "full_name" => $user["name"],
+            "user_id" => $user["id"],
+            "name" => $user["name"],
+            "roles" => ["admin"]
         ];
         $res = [
-            'status' => 200,
+            'code' => 200,
             'message' => 'ok',
             'data' => $data
         ];
