@@ -14,14 +14,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+Route::get('/', function () {
+    return response()->json([
+        "code" => 200,
+        "message" => "Welcome to DTSoft API"
+    ]);
+});
 Route::post('/user/register', 'App\Http\Controllers\ApiUserController@register');
 Route::post('/user/login', 'App\Http\Controllers\ApiUserController@login');
+Route::post('/user/logout', 'App\Http\Controllers\ApiUserController@logout');
 Route::get('/user/info', 'App\Http\Controllers\ApiUserController@info');
 Route::get('/user/refresh', 'App\Http\Controllers\ApiUserController@refresh');
+
+Route::post('/news/add_category', 'App\Http\Controllers\ApiNewsController@add_category');
+
 Route::fallback(function () {
     return json_encode([
-        'status' => 400,
+        'code' => 400,
         'message' => 'Can not find method.'
     ]);
 });
