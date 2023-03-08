@@ -16,9 +16,10 @@ class CreateProductCategories extends Migration
         Schema::create('product_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
-            $table->boolean('status');
+            $table->boolean('status')->default(false);
+            $table->softDeletes();
         });
     }
 

@@ -15,7 +15,16 @@ class CreateNewsCategories extends Migration
     {
         Schema::create('news_categories', function (Blueprint $table) {
             $table->id();
+            $table->string("title");
+            $table->text("description")->nullable();
+            $table->string("image")->nullable();
+            $table->string("icon")->nullable();
+            $table->string("seo_desc")->nullable();
+            $table->string("seo_key")->nullable();
+            $table->string("seo_title")->nullable();
+            $table->boolean("status")->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

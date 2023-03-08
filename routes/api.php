@@ -20,13 +20,16 @@ Route::get('/', function () {
         "message" => "Welcome to DTSoft API"
     ]);
 });
-Route::post('/user/register', 'App\Http\Controllers\ApiUserController@register');
-Route::post('/user/login', 'App\Http\Controllers\ApiUserController@login');
-Route::post('/user/logout', 'App\Http\Controllers\ApiUserController@logout');
-Route::get('/user/info', 'App\Http\Controllers\ApiUserController@info');
-Route::get('/user/refresh', 'App\Http\Controllers\ApiUserController@refresh');
+Route::post('/user/register', 'App\Http\Controllers\api\Users@register');
+Route::post('/user/login', 'App\Http\Controllers\api\Users@login');
+Route::post('/user/logout', 'App\Http\Controllers\api\Users@logout');
+Route::get('/user/info', 'App\Http\Controllers\api\Users@info');
+Route::get('/user/refresh', 'App\Http\Controllers\api\Users@refresh');
 
-Route::post('/news/add_category', 'App\Http\Controllers\ApiNewsController@add_category');
+Route::post('/news/add_category', 'App\Http\Controllers\api\News@add_category');
+Route::get('/news/list_category', 'App\Http\Controllers\api\News@list_category');
+Route::put('/news/edit_category/{id}', 'App\Http\Controllers\api\News@edit_category');
+Route::delete('/news/delete_category/{id}', 'App\Http\Controllers\api\News@delete_category');
 
 Route::fallback(function () {
     return json_encode([

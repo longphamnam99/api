@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\api;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\ApiRegisterRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 
-class ApiUserController extends Controller
+class Users extends Controller
 {
     public function __construct()
     {
