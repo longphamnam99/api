@@ -5,21 +5,20 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class News_categories extends Model
+class Product_categories extends Model
 {
     use HasFactory;
+
     public $primaryKey = 'id';
 
-    public $table = 'news_categories';
+    public $table = 'product_categories';
 
     protected $fillable = [
-        'title', 
-        'description',
-        'image',
-        'icon',
-        'seo_desc',
-        'seo_key',
+        'code', 
+        'photo',
         'seo_title',
+        'seo_description',
+        'seo_keyword',
         'status'
     ];
 

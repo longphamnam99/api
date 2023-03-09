@@ -31,6 +31,21 @@ Route::get('/news/list_category', 'App\Http\Controllers\api\News@list_category')
 Route::put('/news/edit_category/{id}', 'App\Http\Controllers\api\News@edit_category');
 Route::delete('/news/delete_category/{id}', 'App\Http\Controllers\api\News@delete_category');
 
+Route::get('/news/list_post', 'App\Http\Controllers\api\News@list_post');
+Route::post('/news/add_post', 'App\Http\Controllers\api\News@add_post');
+Route::put('/news/edit_post/{id}', 'App\Http\Controllers\api\News@edit_post');
+Route::delete('/news/delete_post/{id}', 'App\Http\Controllers\api\News@delete_post');
+
+Route::get('/product/list_category', 'App\Http\Controllers\api\Product@list_category');
+Route::post('/product/add_category', 'App\Http\Controllers\api\Product@add_category');
+Route::put('/product/edit_category/{id}', 'App\Http\Controllers\api\Product@edit_category');
+Route::delete('/product/delete_category/{id}', 'App\Http\Controllers\api\Product@delete_category');
+
+Route::get('/product/list_post', 'App\Http\Controllers\api\Product@list_post');
+Route::post('/product/add_post', 'App\Http\Controllers\api\Product@add_post');
+Route::put('/product/edit_post/{id}', 'App\Http\Controllers\api\Product@edit_post');
+Route::delete('/product/delete_post/{id}', 'App\Http\Controllers\api\Product@delete_post');
+
 Route::fallback(function () {
     return json_encode([
         'code' => 400,
